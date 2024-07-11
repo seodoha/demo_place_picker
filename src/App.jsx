@@ -56,7 +56,7 @@ function App() {
     }
   }
 
-  const handleRemovePlace = useCallback(function handleRemovePlace() {
+  const handleRemovePlace = useCallback(() => {
     setPickedPlaces((prevPickedPlaces) =>
       prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
     );
@@ -68,6 +68,19 @@ function App() {
       JSON.stringify(storedIds.filter((id) => id !== selectedPlace.current))
     );
   }, []);
+
+  // function handleRemovePlace() {
+  //   setPickedPlaces((prevPickedPlaces) =>
+  //     prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
+  //   );
+  //   // setModalIsOpen(false);
+
+  //   const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
+  //   localStorage.removeItem(
+  //     'selectedPlaces',
+  //     JSON.stringify(storedIds.filter((id) => id !== selectedPlace.current))
+  //   );
+  // }
 
   return (
     <>
